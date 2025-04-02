@@ -136,3 +136,4 @@ console.log(monitor2.toString());
 let computadora1 = new Computadora(1, monitor1, teclado1, raton1);
 
 console.log(computadora1)
+console.log(computadora1)
