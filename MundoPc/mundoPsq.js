@@ -32,9 +32,8 @@ class Raton extends DispositivoEntrada{
     }
     toString(){
         return `Raton: ${this._idRaton}
-        -Tipo Entrada: ${this._tipoEntrada}
-        -Marca: ${this._marca}
-        --------------------------------------------------`
+            -Tipo Entrada: ${this._tipoEntrada}
+            -Marca: ${this._marca}`
     }
 }
 
@@ -51,9 +50,8 @@ class Teclado extends DispositivoEntrada{
 
     toString(){
         return `Teclado: ${this._idTeclado}
-        -Tipo Entrada: ${this._tipoEntrada}
-        -Marca: ${this._marca}
-        --------------------------------------------------`
+            -Tipo Entrada: ${this._tipoEntrada}
+            -Marca: ${this._marca}`
     }
 }
 
@@ -81,8 +79,8 @@ class Monitor{
 
     toString(){
         return `Monitor: ${this._idMonitor}
-                Marca: ${this._marca}
-                Tamaño: ${this._tamaño}`
+            Marca: ${this._marca}
+            Tamaño: ${this._tamaño}`
     }
 }
 
@@ -108,7 +106,36 @@ class Computadora{
     }
 
     toString() {
-        return `Computadora: ${this._idComputadora} \n Nombre: ${this._nombre} \n Monitor: ${this._monitor} \n Teclado: ${this._teclado} /n Raton: ${this._raton}`
+        return `Computadora: ${this._idComputadora} \n Nombre: ${this._nombre} \n Monitor: ${this._monitor} \n Teclado: ${this._teclado} \n Raton: ${this._raton}`
+    }
+
+}
+
+class Orden{
+    static contadorOrden = 0;
+    constructor(){
+        this._idOrden = ++Orden.contadorOrden;
+        this._computadora = [];
+    }
+
+    get idOrden(){
+        return this._idOrden
+    }
+
+    get computadora(){
+        return this._computadora
+    }
+
+
+    agregarComputadoras(computadora){
+        this._computadora.push(computadora)
+    }
+    mostrarOrden(){
+        let computadoraOrden = '';
+        for(let computadora of this._computadora){
+            computadoraOrden += `\n${computadora}`;
+        }
+        console.log(`Orden: ${this._idOrden}, Computadoras: ${computadoraOrden}`)
     }
 
 }
@@ -134,5 +161,11 @@ console.log(monitor1.toString());
 console.log(monitor2.toString());
 
 let computadora1 = new Computadora(1, monitor1, teclado1, raton1);
+let computadora2 = new Computadora(1, monitor2, teclado2, raton2);
 
 console.log(computadora1)
+
+let orden = new Orden();
+orden.agregarComputadoras(computadora1);
+orden.agregarComputadoras(computadora2);
+orden.mostrarOrden();
