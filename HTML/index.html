@@ -4,13 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javascript</title>
+    <style>
+        .parrafo{
+            color: orange;
+        }
+    </style>
 </head>
 <body>
     
-    <h1>Ejemplo Javascript</h1>
-
+    <h1 id='titulo'>Ejemplo Javascript</h1>
+    <p class="parrafo">Este es un parrafo</p>
+    <p class="parrafo">Ejemplo</p>
+    <p class="parrafo">Para 3</p>
 
     <script>
+        function impri(m){
+            console.log(m);
+        }
+
+        let parrafos = document.getElementsByClassName ('parrafo');
+        for(let elemento of parrafos){
+            impri(elemento.innerHTML)
+        }
+
         
     </script>
 </body>
